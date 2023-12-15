@@ -1,0 +1,66 @@
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                </div>
+
+                                <h6 class="h5 mb-0">Welcome back!</h6>
+                                <p class="text-muted mt-2 mb-5">Enter your email address and password to access.</p>
+
+                                <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)">
+                                    <div class="form-group">
+                                        <label for="inputEmail1">Email address</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Veuillez saisir votre email(email@mail.com)" 
+                                        ngModel #emailInput="ngModel" required>
+                                        <span class="help-block" style="color: red;"
+                                        *ngIf="emailInput.invalid && emailInput.touched">Please enter an email</span>
+                                    </div>
+                                    
+                                    <div class="form-group mb-5">
+                                        <label for="inputPassword1">Password</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password"
+                                         ngModel #passwordInput="ngModel" required>
+                                         <span class="help-block" style="color: red"
+                                         *ngIf="passwordInput.invalid && passwordInput.touched">Please enter a password</span>
+                                    </div>
+                                    <button type="submit" [disabled]="loginForm.invalid || showLoading" name="button" class="btn btn-lg btn-primary">
+                                        <i *ngIf="showLoading" class="fas fa-spinner fa-spin"> </i>&nbsp;&nbsp;
+                                        <span *ngIf="showLoading">Loading...</span>
+                                        <span *ngIf="!showLoading">Login</span>
+                                        </button>
+                                    <a href="#l" class="forgot-link float-right text-primary">Forgot password?</a>
+                                </form>                                
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center links">
+                                    Don't have an account? <a class="ml-2"  routerLink="/register">Register</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                        
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+            <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a href="" class="text-primary ml-1">register</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
